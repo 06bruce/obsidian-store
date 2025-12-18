@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import ImageCard from '../components/ui/ImageCard';
+import Snowfall from 'react-snowfall';
 
 const products = [
     { id: 1, name: "Neon Breaker", price: "$250", image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600" },
@@ -11,6 +13,7 @@ const products = [
 
 const Shop = () => {
     return (
+        <Snowfall color="#ffffff" snowflakeCount={200} >
         <div className="pt-32 px-6 min-h-screen">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collection</h2>
 
@@ -24,7 +27,7 @@ const Shop = () => {
                         transition={{ delay: index * 0.1 }}
                     >
                         <div className="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
-                            <img src={product.image} alt={product.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            <ImageCard src={product.image} alt={product.name} productId={product.id} use3D={true} />
                         </div>
                         <div className="flex justify-between items-center px-2">
                             <h3 className="text-lg font-medium">{product.name}</h3>
@@ -34,6 +37,7 @@ const Shop = () => {
                 ))}
             </div>
         </div>
+        </Snowfall>
     );
 };
 

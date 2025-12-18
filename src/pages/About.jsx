@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import Snowfall from 'react-snowfall';
 
 const About = () => {
     return (
         <div className="pt-32 px-6 min-h-screen flex flex-col items-center">
+            <Snowfall color="#ffffff" snowflakeCount={200} />
+            
             <motion.div
                 className="max-w-3xl text-center glass p-12 rounded-3xl"
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ImageCard from './ImageCard';
 
 const products = [
     {
@@ -53,11 +54,7 @@ const ProductShowcase = () => {
                         >
                             <div className="aspect-[4/5] overflow-hidden rounded-xl bg-secondary mb-4 relative">
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                                />
+                                <ImageCard src={product.image} alt={product.name} productId={product.id} use3D={true} />
                             </div>
 
                             <div className="flex flex-col">
