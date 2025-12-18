@@ -2,10 +2,10 @@ import React from 'react';
 import Product3DCanvas from './Product3DCanvas';
 import './ImageCard.css';
 
-const ImageCard = ({ src, alt, use3D = true, productId = 1 }) => {
+const ImageCard = ({ src, alt, use3D = true, productId = 1, spin = true }) => {
     return (
         <div className="image-card-wrapper">
-            <div className="image-card-inner">
+            <div className={`image-card-inner ${spin ? 'spinning' : 'static'}`}>
                 {/* Front face */}
                 <div className="image-card-front">
                     <img src={src} alt={alt} className="w-full h-full object-cover" />

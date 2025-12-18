@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import ImageCard from '../components/ui/ImageCard';
+import Carousel from '../components/ui/Carousel';
 import Snowfall from 'react-snowfall';
 
 const products = [
@@ -13,30 +13,19 @@ const products = [
 
 const Shop = () => {
     return (
-        <Snowfall color="#ffffff" snowflakeCount={200} >
-        <div className="pt-32 px-6 min-h-screen">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collection</h2>
+        <Snowfall color="#ffffff" snowflakeCount={200}>
+            <div className="pt-32 px-6 min-h-screen pb-32">
+                <motion.h2
+                    className="text-4xl md:text-5xl font-bold mb-20 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    Collection
+                </motion.h2>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {products.map((product, index) => (
-                    <motion.div
-                        key={product.id}
-                        className="glass p-4 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                    >
-                        <div className="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
-                            <ImageCard src={product.image} alt={product.name} productId={product.id} use3D={true} />
-                        </div>
-                        <div className="flex justify-between items-center px-2">
-                            <h3 className="text-lg font-medium">{product.name}</h3>
-                            <span className="text-accent">{product.price}</span>
-                        </div>
-                    </motion.div>
-                ))}
+                <Carousel products={products} />
             </div>
-        </div>
         </Snowfall>
     );
 };

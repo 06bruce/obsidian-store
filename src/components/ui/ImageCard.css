@@ -9,9 +9,17 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  animation: flipAndSpin 4s linear infinite;
   border-radius: inherit;
   overflow: hidden;
+}
+
+.image-card-inner.spinning {
+  animation: flipAndSpin 8s linear infinite;
+}
+
+.image-card-inner.static {
+  /* No animation - stays at front */
+  transform: rotateY(0deg) !important;
 }
 
 .image-card-inner > div {
